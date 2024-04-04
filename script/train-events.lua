@@ -72,7 +72,7 @@ function TrainArrives(train)
           for i, wagon in pairs(train.fluid_wagons) do
             for fluid, count in pairs(wagon.get_fluid_contents()) do
               if count <= depot_fluid_cleaning then
-                local removed = wagon.remove_fluid({name=fluid, amount=count})
+                local removed = wagon.remove_fluid({name=fluid, amount=count+1})
                 if debug_log then log(format("(TrainArrives) Train \"%s\"[%d]: Depot fluid removal %s %f/%f", trainName, i, fluid, removed, count)) end
               end
             end
